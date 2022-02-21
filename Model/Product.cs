@@ -22,5 +22,6 @@ namespace Model
         /// 商品单价
         /// </summary>
         public Decimal ProductPrice { get; set; }
+        public int DDD { get; set; }
     }
 }
