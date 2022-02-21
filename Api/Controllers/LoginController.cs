@@ -20,7 +20,9 @@ namespace Api.Controllers
     public class LoginController : ControllerBase
     {
         private IConfiguration configuration;
+        //连接服务
         public IServiceDB service;
+        //构造函数
         public LoginController(IConfiguration configuration, IServiceDB service)
         {
             this.configuration = configuration;
