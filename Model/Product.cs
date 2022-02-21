@@ -23,5 +23,6 @@ namespace Model
         /// </summary>
         public Decimal ProductPrice { get; set; }
         public int DDD { get; set; }
+        public int Number { get; set; }
     }
 }
