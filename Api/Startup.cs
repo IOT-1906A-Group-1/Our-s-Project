@@ -1,3 +1,6 @@
+using Context;
+using IRepository;
+using IService;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -6,6 +9,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using Repository;
+using Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,7 +30,9 @@ namespace Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            services.AddScoped(typeof(IRepositoryDB<>), typeof(RepositorySqlDB<>));
+            services.AddScoped<IServiceDB, ServiceSqlDB>();
+            services.AddDbContext<Db_Context>();
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {

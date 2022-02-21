@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-   public class UModel
+    public class User//用户表
     {
         [Key]
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public int  Age { get; set; }
+        public int user_Id { get; set; }//主键id
+        public string user_Account { get; set; }//用户名
+        public string user_Password { get; set; }//密码
     }
 }

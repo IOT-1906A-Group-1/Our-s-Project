@@ -1,4 +1,5 @@
 ﻿using Domain;
+using IService;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -19,9 +20,46 @@ namespace Api.Controllers
     public class LoginController : ControllerBase
     {
         private IConfiguration configuration;
-        public LoginController(IConfiguration configuration)
+        public IServiceDB service;
+        public LoginController(IConfiguration configuration, IServiceDB service)
         {
             this.configuration = configuration;
+            this.service = service;
+        }
+        //登录
+        [Route("api/Login"), HttpGet]
+        public IActionResult Login(string account, string password)
+        {
+            bool isLogin;
+            InputLogin models = new InputLogin
+            {
+                user_Account = account,
+                user_Password = password
+            };
+            var loginUid = service.Login(models);
+            if (loginUid != 0)
+            {
+                isLogin = true;
+            }
+            else
+            {
+                isLogin = false;
+            }
+            if (isLogin)
+            {
+                TokenModel model = new TokenModel
+                {
+                    acc = account,
+                    pwd = password
+                };
+                var strJWT = GetJWT(model);
+                //进行数据库的验证，验证通过后返回jwt 验证不通过则返回"登录失败"
+                return Ok(new { loginUid, strJWT });
+            }
+            else
+            {
+                return Ok("登录失败");
+            }
         }
         /// <summary>
         /// 生成JWT字符串
