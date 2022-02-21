@@ -18,7 +18,7 @@ namespace Context
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Data Source=.;Initial Catalog=ProjectDB;Integrated Security=True");
+                optionsBuilder.UseSqlServer("Data Source=10.3.187.19;Initial Catalog=ProjectDB;Integrated Security=True;User Id=sa;Password=123");
             }
         }
         public DbSet<User> User { get; set; }
