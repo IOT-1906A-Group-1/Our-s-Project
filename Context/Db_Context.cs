@@ -23,6 +23,7 @@ namespace Context
         }
         public DbSet<User> User { get; set; }
         public  DbSet<LeaveNew> LeaveNew { get; set; }
+        public DbSet<PlanModels> PlanModels { get; set; }
       
     }
 }

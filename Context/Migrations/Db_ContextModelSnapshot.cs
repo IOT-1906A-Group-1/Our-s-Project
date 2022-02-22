@@ -46,6 +46,39 @@ namespace Context.Migrations
                     b.ToTable("LeaveNew");
                 });
 
+            modelBuilder.Entity("Model.PlanModels", b =>
+                {
+                    b.Property<int>("plan_Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("TaskId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("plan_CreateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("plan_InFormationId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("plan_PartMent")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("plan_People")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("plan_Remark")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("plan_Years")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("plan_Id");
+
+                    b.ToTable("PlanModels");
+                });
+
             modelBuilder.Entity("Model.User", b =>
                 {
                     b.Property<int>("user_Id")
