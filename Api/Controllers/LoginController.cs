@@ -82,7 +82,6 @@ namespace Api.Controllers
                 new Claim(JwtRegisteredClaimNames.Iss,"API"), // 签发者
                 new Claim(JwtRegisteredClaimNames.Aud,"User") // 接收者
             };
-
             // 密钥
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration.GetSection("secretKey").Value));
             //sha256加密规则
