@@ -18,13 +18,11 @@ namespace Context
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Data Source = 10.3.187.19,1433;Initial Catalog = ProjectDB;User ID = sa; Password = 123;");
+                optionsBuilder.UseSqlServer("Data Source = 10.3.187.19,1433;Initial Catalog = BPMDB;User ID = sa; Password = 123;");
             }
         }
         public DbSet<User> User { get; set; }
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-
-        }
+        public  DbSet<LeaveNew> LeaveNew { get; set; }
+      
     }
 }
