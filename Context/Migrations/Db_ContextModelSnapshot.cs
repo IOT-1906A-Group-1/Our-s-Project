@@ -19,6 +19,96 @@ namespace Context.Migrations
                 .HasAnnotation("ProductVersion", "5.0.12")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("Model.Employ", b =>
+                {
+                    b.Property<int>("employ_Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("TaskId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("employ_Address")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("employ_Culture")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("employ_Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("employ_Hdate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("employ_Health")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("employ_Isput")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("employ_Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("employ_Period")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("employ_Phone")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("employ_Post")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("employ_Section")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("employ_Sex")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("employ_Speciality")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("employ_State")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("employ_Style")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("employ_Time")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("employ_Treatment")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("employ_Id");
+
+                    b.ToTable("Employ");
+                });
+
+            modelBuilder.Entity("Model.Employee", b =>
+                {
+                    b.Property<int>("employee_Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("TaskId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("employee_Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("employee_Post")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("employee_Relation")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("employee_Id");
+
+                    b.ToTable("Employee");
+                });
+
             modelBuilder.Entity("Model.LeaveNew", b =>
                 {
                     b.Property<int>("Id")
