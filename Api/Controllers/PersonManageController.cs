@@ -41,5 +41,15 @@ namespace Api.Controllers
         {
             StartProccess<InputEmploy>(inputEmploy);
         }
+
+        /// <summary>
+        /// 员工离职
+        /// </summary>
+        /// <param name="inputEmploy"></param>
+        [HttpPost, Route("api/startDepartur")]
+        public void StartDeparture(InputDeparture inputDeparture)
+        {
+            StartProccess<InputDeparture>(inputDeparture);
+        }
     }
 }
