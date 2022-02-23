@@ -14,9 +14,9 @@ namespace Api.Controllers
 {
 
     [ApiController]
-    public class LeaveController : BaseController
+    public class PersonManageController : BaseController
     {
-        public LeaveController(IConfiguration configuration) : base(configuration)
+        public PersonManageController(IConfiguration configuration) : base(configuration)
         {
            
         }
