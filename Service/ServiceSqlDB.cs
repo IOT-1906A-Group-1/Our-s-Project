@@ -18,16 +18,16 @@ namespace Service
         }
 
         //登录
-        public int Login(InputLogin model)
+        public string Login(InputLogin model)
         {
             var obj = db.User.FirstOrDefault(x => x.user_Account == model.user_Account && x.user_Password == model.user_Password);
             if (obj != null)
             {
-                return obj.user_Id;
+                return obj.user_Name;
             }
             else
             {
-                return 0;
+                return "0";
             }
         }
     }
