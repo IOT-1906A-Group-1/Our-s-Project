@@ -20,12 +20,26 @@ namespace Api.Controllers
         {
            
         }
+        /// <summary>
+        /// 请假
+        /// </summary>
+        /// <param name="leaveNew"></param>
+        /// <returns></returns>
         [HttpPost]
         [Route("api/stratBPM")]
         public int stratBPM(InputLeaveNew leaveNew)
         {
-            StartProccess(leaveNew);
+            StartProccess<InputLeaveNew>(leaveNew);
             return 1;
+        }
+        /// <summary>
+        /// 员工录用
+        /// </summary>
+        /// <param name="inputEmploy"></param>
+        [HttpPost,Route("api/startemploy")]
+        public void StartEmploy(InputEmploy inputEmploy)
+        {
+            StartProccess<InputEmploy>(inputEmploy);
         }
     }
 }
