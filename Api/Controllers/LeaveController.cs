@@ -27,5 +27,12 @@ namespace Api.Controllers
             StartProccess(leaveNew);
             return 1;
         }
+
+        [HttpPost]
+        [Route("api/StartPlan")]
+        public void StartPlan(InputPlanModels models)
+        {
+            StartProccess<InputPlanModels>(models);
+        }
     }
 }

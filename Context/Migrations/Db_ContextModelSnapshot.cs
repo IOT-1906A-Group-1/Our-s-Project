@@ -19,6 +19,63 @@ namespace Context.Migrations
                 .HasAnnotation("ProductVersion", "5.0.12")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("Model.InfoModels", b =>
+                {
+                    b.Property<int>("info_Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("info_April")
+                        .HasColumnType("int");
+
+                    b.Property<int>("info_August")
+                        .HasColumnType("int");
+
+                    b.Property<int>("info_December")
+                        .HasColumnType("int");
+
+                    b.Property<int>("info_February")
+                        .HasColumnType("int");
+
+                    b.Property<int>("info_January")
+                        .HasColumnType("int");
+
+                    b.Property<int>("info_July")
+                        .HasColumnType("int");
+
+                    b.Property<int>("info_June")
+                        .HasColumnType("int");
+
+                    b.Property<int>("info_LastYears_Has")
+                        .HasColumnType("int");
+
+                    b.Property<int>("info_March")
+                        .HasColumnType("int");
+
+                    b.Property<int>("info_May")
+                        .HasColumnType("int");
+
+                    b.Property<int>("info_November")
+                        .HasColumnType("int");
+
+                    b.Property<int>("info_October")
+                        .HasColumnType("int");
+
+                    b.Property<string>("info_Position")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("info_September")
+                        .HasColumnType("int");
+
+                    b.Property<int>("info_Sum")
+                        .HasColumnType("int");
+
+                    b.HasKey("info_Id");
+
+                    b.ToTable("InfoModels");
+                });
+
             modelBuilder.Entity("Model.LeaveNew", b =>
                 {
                     b.Property<int>("Id")
