@@ -13,6 +13,6 @@ namespace Model
         public int user_Id { get; set; }//主键id
         public string user_Account { get; set; }//用户名
         public string user_Password { get; set; }//密码
-
+        public string user_Name { get; set; }//用户姓名
     }
 }

@@ -9,6 +9,6 @@ namespace IService
 {
     public interface IServiceDB
     {
-        int Login(InputLogin model);
+        string Login(InputLogin model);
     }
 }

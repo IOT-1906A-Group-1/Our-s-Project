@@ -38,8 +38,8 @@ namespace Api.Controllers
                 user_Account = account,
                 user_Password = password
             };
-            var loginUid = service.Login(models);
-            if (loginUid != 0)
+            var loginUname = service.Login(models);
+            if (loginUname != "0")
             {
                 isLogin = true;
             }
@@ -56,7 +56,7 @@ namespace Api.Controllers
                 };
                 var strJWT = GetJWT(model);
                 //进行数据库的验证，验证通过后返回jwt 验证不通过则返回"登录失败"
-                return Ok(new { loginUid, strJWT });
+                return Ok(new { loginUname, strJWT });
             }
             else
             {
