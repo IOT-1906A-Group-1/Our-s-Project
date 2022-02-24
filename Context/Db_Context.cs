@@ -23,13 +23,9 @@ namespace Context
         }
         public DbSet<User> User { get; set; }
         public  DbSet<LeaveNew> LeaveNew { get; set; }
-<<<<<<< HEAD
         public DbSet<PlanModels> PlanModels { get; set; }
         public DbSet<InfoModels> InfoModels { get; set; }
-=======
         public virtual DbSet<Employ> Employ { get; set; }
         public virtual DbSet<Employee> Employee { get; set; }
->>>>>>> 55afd3a19b855b76f441ba6fb7a0bb5c3293a628
-      
     }
 }
