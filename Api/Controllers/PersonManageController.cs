@@ -51,5 +51,15 @@ namespace Api.Controllers
         {
             StartProccess<InputDeparture>(inputDeparture);
         }
+        /// <summary>
+        /// 招聘计划
+        /// </summary>
+        /// <param name="models"></param>
+        [HttpPost]
+        [Route("api/StartPlan")]
+        public void StartPlan(InputPlanModels models)
+        {
+            StartProccess<InputPlanModels>(models);
+        }
     }
 }
