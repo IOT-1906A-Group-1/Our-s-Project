@@ -4,6 +4,7 @@ using Domain.InputModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
+using Model;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -40,6 +41,18 @@ namespace Api.Controllers
         public void StartEmploy(InputEmploy inputEmploy)
         {
             StartProccess<InputEmploy>(inputEmploy);
+        }
+        /// <summary>
+        /// 人力资源需求
+        /// </summary>
+        /// <param name="leaveNew"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("api/StartHR")]
+        public int StartHR(InputHRModel leaveNew)
+        {
+            StartProccess(leaveNew);
+            return 1;
         }
 
         /// <summary>
