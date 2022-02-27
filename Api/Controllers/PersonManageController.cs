@@ -22,17 +22,18 @@ namespace Api.Controllers
         {
            
         }
+
         /// <summary>
-        /// 招聘计划
+        /// 人力资源需求
         /// </summary>
-        /// <param name="models"></param>
+        /// <param name="leaveNew"></param>
+        /// <returns></returns>
         [HttpPost]
-        [Route("api/StartPlan")]
-        public int StartPlan(BPMPlanModels models)
+        [Route("api/StartHR")]
+        public int StartHR(BPMHRModels leaveNew)
         {
-            var plan = CollectionToSqlXml<PlanModels>(models.PlanData);
-            var info = CollectionToSqlXml<InfoModels>(models.PlanInfoDetail);
-            StartProccess(plan + info, models);
+            var xml = CollectionToSqlXml<HRModel>(leaveNew.HRdata);
+            StartProccess(xml, leaveNew);
             return 1;
         }
 
