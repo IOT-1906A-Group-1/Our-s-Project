@@ -7,17 +7,12 @@ using System.Threading.Tasks;
 
 namespace Domain.InputModels
 {
-    /// <summary>
-    /// 年度计划表(主表)
-    /// </summary>
-    public class InputPlanModels:BaseModels
+    public class InputPlanModels
     {
-
         public int TaskId { get; set; }
         /// <summary>
         /// 主键
         /// </summary>
-        [Key]
         public int plan_Id { get; set; }
         /// <summary>
         /// 制表人

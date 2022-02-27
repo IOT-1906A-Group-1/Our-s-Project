@@ -37,14 +37,16 @@ namespace Api.Controllers
             return 1;
         }
         /// <summary>
-        /// 员工离职
+        /// 招聘计划
         /// </summary>
-        /// <param name="inputEmploy"></param>
-        [HttpPost, Route("api/startDepartur")]
-        public int StartDeparture(DepartureModel departureModel)
+        /// <param name="models"></param>
+        [HttpPost]
+        [Route("api/StartPlan")]
+        public int StartPlan(BPMPlanModels models)
         {
-            var xml = CollectionToSqlXml<Departure>(departureModel.Departure);
-            StartProccess(xml, departureModel);
+            var plan = CollectionToSqlXml<PlanModels>(models.PlanData);
+            var info = CollectionToSqlXml<InfoModels>(models.PlanInfoDetail);
+            StartProccess(plan + info, models);
             return 1;
         }
         /// <summary>

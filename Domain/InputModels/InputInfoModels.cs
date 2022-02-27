@@ -1,18 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Domain.InputModels
 {
-    public class InputInfoModels:BaseModels
+    public class InputInfoModels
     {
         /// <summary>
         /// 主键
         /// </summary>
-        [Key]
         public int info_Id { get; set; }
         /// <summary>
         /// 岗位
@@ -25,7 +23,7 @@ namespace Domain.InputModels
         /// <summary>
         /// 一月份
         /// </summary>
-        public int info_January{ get; set; }
+        public int info_January { get; set; }
         /// <summary>
         /// 二月份
         /// </summary>
