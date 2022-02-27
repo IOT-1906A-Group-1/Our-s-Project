@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 
 namespace Domain.InputModels
 {
-    public class InputEmploy:BaseModels
+    public class InputEmploy
     {
         public int employ_Id { get; set; }//主键id
         public int TaskId { get; set; }//taskid
         public string employ_Section { get; set; }//使用部门
-        public DateTime employ_Hdate { get; set; }//核定日期
+        public string employ_Hdate { get; set; }//核定日期
         public string employ_Post { get; set; }//岗位名称
         public string employ_State { get; set; }//岗位说明
         public string employ_Style { get; set; }//人员类别
         public string employ_Name { get; set; }//姓名
         public bool employ_Sex { get; set; }//性别
-        public DateTime employ_Date { get; set; }//出生日期
+        public string employ_Date { get; set; }//出生日期
         public string employ_Culture { get; set; }//文化程度
         public string employ_Health { get; set; }//健康状况
         public string employ_Phone { get; set; }//电话

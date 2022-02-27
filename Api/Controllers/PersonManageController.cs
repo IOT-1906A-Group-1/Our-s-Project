@@ -22,57 +22,18 @@ namespace Api.Controllers
            
         }
         /// <summary>
-        /// 请假
-        /// </summary>
-        /// <param name="leaveNew"></param>
-        /// <returns></returns>
-        [HttpPost]
-        [Route("api/stratBPM")]
-        public int stratBPM(InputLeaveNew leaveNew)
-        {
-            StartProccess<InputLeaveNew>(leaveNew);
-            return 1;
-        }
-        /// <summary>
         /// 员工录用
         /// </summary>
         /// <param name="inputEmploy"></param>
         [HttpPost,Route("api/startemploy")]
-        public void StartEmploy(InputEmploy inputEmploy)
+        public int StartEmploy(InputEmployAll inputEmployAll)
         {
-            StartProccess<InputEmploy>(inputEmploy);
-        }
-        /// <summary>
-        /// 人力资源需求
-        /// </summary>
-        /// <param name="leaveNew"></param>
-        /// <returns></returns>
-        [HttpPost]
-        [Route("api/StartHR")]
-        public int StartHR(InputHRModel leaveNew)
-        {
-            StartProccess(leaveNew);
+            //string a = inputEmployAll.EmployData.Replace("\\", "");
+            //string b = inputEmployAll.EmployeeDetail.Replace("\\", "");
+            var xml = CollectionToSqlXml<Employ>(inputEmployAll.EmployData);
+            var xml1 = CollectionToSqlXml<Employee>(inputEmployAll.EmployeeDetail);
+            StartProccess(xml+xml1, inputEmployAll);
             return 1;
-        }
-
-        /// <summary>
-        /// 员工离职
-        /// </summary>
-        /// <param name="inputEmploy"></param>
-        [HttpPost, Route("api/startDepartur")]
-        public void StartDeparture(InputDeparture inputDeparture)
-        {
-            StartProccess<InputDeparture>(inputDeparture);
-        }
-        /// <summary>
-        /// 招聘计划
-        /// </summary>
-        /// <param name="models"></param>
-        [HttpPost]
-        [Route("api/StartPlan")]
-        public void StartPlan(InputPlanModels models)
-        {
-            StartProccess<InputPlanModels>(models);
         }
     }
 }

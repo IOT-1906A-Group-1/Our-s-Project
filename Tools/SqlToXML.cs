@@ -1,47 +1,22 @@
-﻿using BPMAPI.OtherApi;
-using bpmdemoapi.models;
-using Domain.InputModels;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
-using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlTypes;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 
-namespace Api.Controllers
+namespace Tools
 {
-    public class BaseController
+    public class SqlToXml
     {
-        protected DataSet dataSet = new DataSet("FormData");
-        private const string IsNotField = "Action,BPMUser,BPMUserPass,FullName,ProcessName,Detail";
-        private IConfiguration configuration;
-        public BaseController(IConfiguration configuration)
+        protected string CollectionToSqlXml<T>(List<T> TCollection)
         {
-            this.configuration = configuration;
-        }
-        protected string CollectionToSqlXml<T>(string json) where T : class, new()
-        {
-            List<T> TCollection;
-            if (json.IndexOf("[{") > 0)
-            {
-                TCollection = JsonConvert.DeserializeObject<List<T>>(json);
-            }
-
-            else
-            {
-                TCollection = JsonConvert.DeserializeObject<List<T>>("[" + json + "]");
-            }
-
             //先把集合转换成数据表，然后把数据表转换成SQLXML
             return DataTableToSqlXml(CollectionToDataTable(TCollection)).Value.Replace("<DocumentElement>", "").Replace("</DocumentElement>", "");
-
         }
         private DataTable CollectionToDataTable<T>(List<T> TCollection)
         {
@@ -94,52 +69,6 @@ namespace Api.Controllers
                 xml = new SqlXml(XmlReader.Create(ms));
             }
             return xml;
-        }
-        ///// <summary>
-        ///// 获取table
-        ///// </summary>
-        ///// <param name="data"></param>
-        ///// <returns></returns>
-        //private static DataSet GetDataSet(Object data)
-        //{
-        //    Type type = data.GetType();
-
-        //    DataSet formDataSet = new DataSet("FormData");
-
-        //    DataTable table = new DataTable(type.Name);
-        //    string IsNotField = "Action,BPMUser,BPMUserPass,FullName,ProcessName";
-        //    foreach (var property in type.GetProperties())
-        //    {
-
-        //        if (!IsNotField.Contains(property.Name))
-        //            table.Columns.Add(new DataColumn(property.Name, property.PropertyType));
-        //    }
-        //    DataRow add_row = table.NewRow();
-        //    foreach (var property in type.GetProperties())
-        //    {
-        //        if (!IsNotField.Contains(property.Name))
-        //            add_row[property.Name] = property.GetValue(data);
-        //    }
-        //    table.Rows.Add(add_row);
-        //    formDataSet.Tables.Add(table);
-        //    return formDataSet;
-        //}
-
-
-        protected Task<int> StartProccess(string formDataSet, BaseModels baseModels)
-        {
-
-
-            BPMModels models = new BPMModels(configuration)
-            {
-                Action = baseModels.Action,
-                BPMUser = baseModels.BPMUser,
-                BPMUserPass = baseModels.BPMUserPass,
-                FormDataSet = "<FormData>" + formDataSet + "</FormData>",
-                FullName = baseModels.FullName,
-                ProcessName = baseModels.ProcessName
-            };
-            return MyClientApi.OptClientApi(models.BpmServerUrl, models);
         }
     }
 }
