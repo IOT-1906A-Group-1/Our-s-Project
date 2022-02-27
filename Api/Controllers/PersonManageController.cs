@@ -21,58 +21,19 @@ namespace Api.Controllers
         {
            
         }
-        /// <summary>
-        /// 请假
-        /// </summary>
-        /// <param name="leaveNew"></param>
-        /// <returns></returns>
-        [HttpPost]
-        [Route("api/stratBPM")]
-        public int stratBPM(InputLeaveNew leaveNew)
-        {
-            StartProccess<InputLeaveNew>(leaveNew);
-            return 1;
-        }
-        /// <summary>
-        /// 员工录用
-        /// </summary>
-        /// <param name="inputEmploy"></param>
-        [HttpPost,Route("api/startemploy")]
-        public void StartEmploy(InputEmploy inputEmploy)
-        {
-            StartProccess<InputEmploy>(inputEmploy);
-        }
-        /// <summary>
-        /// 人力资源需求
-        /// </summary>
-        /// <param name="leaveNew"></param>
-        /// <returns></returns>
-        [HttpPost]
-        [Route("api/StartHR")]
-        public int StartHR(InputHRModel leaveNew)
-        {
-            StartProccess(leaveNew);
-            return 1;
-        }
+      
 
         /// <summary>
         /// 员工离职
         /// </summary>
         /// <param name="inputEmploy"></param>
         [HttpPost, Route("api/startDepartur")]
-        public void StartDeparture(InputDeparture inputDeparture)
+        public int StartDeparture(DepartureModel departureModel)
         {
-            StartProccess<InputDeparture>(inputDeparture);
+            var xml = CollectionToSqlXml<Departure>(departureModel.Departure);
+            StartProccess(xml, departureModel);
+            return 1;
         }
-        /// <summary>
-        /// 招聘计划
-        /// </summary>
-        /// <param name="models"></param>
-        [HttpPost]
-        [Route("api/StartPlan")]
-        public void StartPlan(InputPlanModels models)
-        {
-            StartProccess<InputPlanModels>(models);
-        }
+      
     }
 }
