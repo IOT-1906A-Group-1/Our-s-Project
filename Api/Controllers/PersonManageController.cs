@@ -18,9 +18,6 @@ namespace Api.Controllers
     [ApiController] 
     public class PersonManageController : BaseController
     {
-        static string fileName;//文件名称
-        static string filePath;//文件路径
-        static string fileSuffix;//文件后缀名
         public PersonManageController(IConfiguration configuration) : base(configuration)
         {
            
@@ -37,6 +34,17 @@ namespace Api.Controllers
         {
             var xml = CollectionToSqlXml<Leave>(leave.LeaveData);
             StartProccess(xml, leave);
+            return 1;
+        }
+        /// <summary>
+        /// 员工离职
+        /// </summary>
+        /// <param name="inputEmploy"></param>
+        [HttpPost, Route("api/startDepartur")]
+        public int StartDeparture(DepartureModel departureModel)
+        {
+            var xml = CollectionToSqlXml<Departure>(departureModel.Departure);
+            StartProccess(xml, departureModel);
             return 1;
         }
         /// <summary>
