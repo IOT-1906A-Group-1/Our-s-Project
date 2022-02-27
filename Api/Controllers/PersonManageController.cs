@@ -8,34 +8,33 @@ using Model;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace Api.Controllers
 {
 
-    [ApiController]
+    [ApiController] 
     public class PersonManageController : BaseController
     {
         public PersonManageController(IConfiguration configuration) : base(configuration)
         {
            
         }
-       
         /// <summary>
-        /// 人力资源需求
+        /// 招聘计划
         /// </summary>
-        /// <param name="leaveNew"></param>
-        /// <returns></returns>
+        /// <param name="models"></param>
         [HttpPost]
-        [Route("api/StartHR")]
-        public int StartHR(BPMHRModels leaveNew)
+        [Route("api/StartPlan")]
+        public int StartPlan(BPMPlanModels models)
         {
-            var xml = CollectionToSqlXml<HRModel>(leaveNew.HRdata);
-            StartProccess(xml, leaveNew);
+            var plan = CollectionToSqlXml<PlanModels>(models.PlanData);
+            var info = CollectionToSqlXml<InfoModels>(models.PlanInfoDetail);
+            StartProccess(plan + info, models);
             return 1;
         }
 
-       
     }
 }

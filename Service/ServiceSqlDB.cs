@@ -1,5 +1,6 @@
 ﻿using Context;
 using Domain;
+using Domain.OutPutModels;
 using IService;
 using System;
 using System.Collections.Generic;
@@ -20,14 +21,14 @@ namespace Service
         //登录
         public string Login(InputLogin model)
         {
-            var obj = db.User.FirstOrDefault(x => x.user_Account == model.user_Account && x.user_Password == model.user_Password);
+            var obj = db.BPMSysUsers.FirstOrDefault(x => x.Account == model.user_Account && x.Password == model.user_Password);
             if (obj != null)
             {
-                return obj.user_Name;
+                return obj.Account;
             }
             else
             {
-                return "0";
+                return null;
             }
         }
     }
