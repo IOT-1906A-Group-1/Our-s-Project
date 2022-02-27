@@ -25,8 +25,7 @@ namespace Api.Controllers
         {
            
         }
-<<<<<<< HEAD
-      
+
 
         /// <summary>
         /// 员工离职
@@ -39,41 +38,5 @@ namespace Api.Controllers
             StartProccess(xml, departureModel);
             return 1;
         }
-      
-=======
-        /// <summary>
-        /// 请假
-        /// </summary>
-        /// <param name="leaveNew"></param>
-        /// <returns></returns>
-        [HttpPost]
-        [Route("api/stratBPM")]
-        public int stratBPM(InputLeaveNew leaveNew)
-        {
-            StartProccess<InputLeaveNew>(leaveNew);
-            return 1;
-        }
-        /// <summary>
-        /// 员工录用
-        /// </summary>
-        /// <param name="inputEmploy"></param>
-        [HttpPost,Route("api/startemploy")]
-        public void StartEmploy(InputEmploy inputEmploy)
-        {
-            StartProccess<InputEmploy>(inputEmploy);
-        }
-        /// <summary>
-        /// 人力资源需求
-        /// </summary>
-        /// <param name="leaveNew"></param>
-        /// <returns></returns>
-        [HttpPost]
-        [Route("api/StartHR")]
-        public int StartHR(InputHRModel leaveNew)
-        {
-            StartProccess(leaveNew);
-            return 1;
-        }
->>>>>>> 0ba20d74071a67eccc36fe2fe22e2f1cebb55c26
     }
 }

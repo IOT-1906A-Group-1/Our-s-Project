@@ -16,33 +16,32 @@ using System.Xml;
 
 namespace Api.Controllers
 {
-   
+
     public class BaseController
     {
-        protected  DataSet dataSet = new DataSet("FormData");
-       private const string IsNotField = "Action,BPMUser,BPMUserPass,FullName,ProcessName,Detail";
+        protected DataSet dataSet = new DataSet("FormData");
+        private const string IsNotField = "Action,BPMUser,BPMUserPass,FullName,ProcessName,Detail";
         private IConfiguration configuration;
         public BaseController(IConfiguration configuration)
         {
             this.configuration = configuration;
         }
-<<<<<<< HEAD
-        protected string CollectionToSqlXml<T>(string json) where T:class,new()
+        protected string CollectionToSqlXml<T>(string json) where T : class, new()
         {
             List<T> TCollection;
             if (json.IndexOf("[{") > 0)
             {
                 TCollection = JsonConvert.DeserializeObject<List<T>>(json);
             }
-            
+
             else
             {
                 TCollection = JsonConvert.DeserializeObject<List<T>>("[" + json + "]");
             }
 
             //先把集合转换成数据表，然后把数据表转换成SQLXML
-            return  DataTableToSqlXml(CollectionToDataTable(TCollection)).Value.Replace("<DocumentElement>", "").Replace("</DocumentElement>", "");
-            
+            return DataTableToSqlXml(CollectionToDataTable(TCollection)).Value.Replace("<DocumentElement>", "").Replace("</DocumentElement>", "");
+
         }
         private DataTable CollectionToDataTable<T>(List<T> TCollection)
         {
@@ -80,15 +79,6 @@ namespace Api.Controllers
         /// <returns></returns>
         private SqlXml DataTableToSqlXml(DataTable table)
         {
-=======
-        /// <summary>
-        /// 数据表转换成SQLXML
-        /// </summary>
-        /// <param name="table">数据表</param>
-        /// <returns></returns>
-        private SqlXml DataTableToSqlXml(DataTable table)
-        {
->>>>>>> 0ba20d74071a67eccc36fe2fe22e2f1cebb55c26
             SqlXml xml;
             //如果表格名为空，则设置表格名
             if (string.IsNullOrEmpty(table.TableName))
@@ -135,18 +125,18 @@ namespace Api.Controllers
         //    return formDataSet;
         //}
 
-       
-        protected Task<int> StartProccess(string formDataSet, BaseModels baseModels) 
+
+        protected Task<int> StartProccess(string formDataSet, BaseModels baseModels)
         {
 
-         
+
             BPMModels models = new BPMModels(configuration)
             {
                 Action = baseModels.Action,
 
                 BPMUser = baseModels.BPMUser,
                 BPMUserPass = baseModels.BPMUserPass,
-                FormDataSet = "<FormData>"+formDataSet+ "</FormData>",
+                FormDataSet = "<FormData>" + formDataSet + "</FormData>",
                 FullName = baseModels.FullName,
                 ProcessName = baseModels.ProcessName
             };
