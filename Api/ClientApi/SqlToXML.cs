@@ -9,7 +9,7 @@ using System.Xml;
 
 namespace Shopping.EF.SqlXML
 {
-   public  class SqlToXML
+    public  class SqlToXML
     {
         protected  string CollectionToSqlXml<T>(List<T> TCollection)
         {
