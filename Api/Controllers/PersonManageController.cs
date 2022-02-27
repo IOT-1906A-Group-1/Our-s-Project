@@ -25,37 +25,32 @@ namespace Api.Controllers
         {
            
         }
+
         /// <summary>
         /// 请假
         /// </summary>
         /// <param name="leaveNew"></param>
         /// <returns></returns>
         [HttpPost]
-        [Route("api/stratBPM")]
-        public int stratBPM(InputLeaveNew leaveNew)
+        [Route("api/stratLeave")]
+        public int stratLeave(BPMLeaveModels leave)
         {
-            StartProccess<InputLeaveNew>(leaveNew);
+            var xml = CollectionToSqlXml<Leave>(leave.LeaveData);
+            StartProccess(xml, leave);
             return 1;
         }
         /// <summary>
         /// 员工录用
         /// </summary>
         /// <param name="inputEmploy"></param>
-        [HttpPost,Route("api/startemploy")]
-        public void StartEmploy(InputEmploy inputEmploy)
+        [HttpPost, Route("api/startemploy")]
+        public int StartEmploy(InputEmployAll inputEmployAll)
         {
-            StartProccess<InputEmploy>(inputEmploy);
-        }
-        /// <summary>
-        /// 人力资源需求
-        /// </summary>
-        /// <param name="leaveNew"></param>
-        /// <returns></returns>
-        [HttpPost]
-        [Route("api/StartHR")]
-        public int StartHR(InputHRModel leaveNew)
-        {
-            StartProccess(leaveNew);
+            //string a = inputEmployAll.EmployData.Replace("\\", "");
+            //string b = inputEmployAll.EmployeeDetail.Replace("\\", "");
+            var xml = CollectionToSqlXml<Employ>(inputEmployAll.EmployData);
+            var xml1 = CollectionToSqlXml<Employee>(inputEmployAll.EmployeeDetail);
+            StartProccess(xml + xml1, inputEmployAll);
             return 1;
         }
     }
