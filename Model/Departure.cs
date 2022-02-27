@@ -39,8 +39,18 @@ namespace Model
         /// </summary>
         public DateTime departure_RDate { get; set; }
         /// <summary>
+        /// 离职日期
+        /// </summary>
+        public DateTime departure_LDate { get; set; }
+        /// <summary>
         /// 离职类型
         /// </summary>
         public string departure_Lizhi { get; set; }
+        /// <summary>
+        /// 离职原因
+        /// </summary>
+        public string departure_LContext { get; set; }
+
+
     }
 }

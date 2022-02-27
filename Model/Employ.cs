@@ -28,7 +28,7 @@ namespace Model
         /// <summary>
         /// 核定日期
         /// </summary>
-        public DateTime employ_Hdate { get; set; }
+        public string employ_Hdate { get; set; }
         /// <summary>
         /// 岗位名称
         /// </summary>
@@ -52,7 +52,7 @@ namespace Model
         /// <summary>
         /// 出生日期
         /// </summary>
-        public DateTime employ_Date { get; set; }
+        public string employ_Date { get; set; }
         /// <summary>
         /// 文化程度
         /// </summary>
