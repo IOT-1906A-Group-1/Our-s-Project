@@ -26,6 +26,7 @@ namespace Api.Controllers
         {
             this.configuration = configuration;
         }
+<<<<<<< HEAD
         protected string CollectionToSqlXml<T>(string json) where T:class,new()
         {
             List<T> TCollection;
@@ -79,6 +80,15 @@ namespace Api.Controllers
         /// <returns></returns>
         private SqlXml DataTableToSqlXml(DataTable table)
         {
+=======
+        /// <summary>
+        /// 数据表转换成SQLXML
+        /// </summary>
+        /// <param name="table">数据表</param>
+        /// <returns></returns>
+        private SqlXml DataTableToSqlXml(DataTable table)
+        {
+>>>>>>> 0ba20d74071a67eccc36fe2fe22e2f1cebb55c26
             SqlXml xml;
             //如果表格名为空，则设置表格名
             if (string.IsNullOrEmpty(table.TableName))
