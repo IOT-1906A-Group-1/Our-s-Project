@@ -18,7 +18,7 @@ namespace Context
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Data Source = 127.0.0.1,1433;Initial Catalog = BPMDB;User ID = sa; Password = 123;");
+                optionsBuilder.UseSqlServer("Data Source = 10.3.187.19,1433;Initial Catalog = BPMDB;User ID = sa; Password = 123;");
             }
         }
         public DbSet<User> User { get; set; }
@@ -28,5 +28,7 @@ namespace Context
         public virtual DbSet<Employ> Employ { get; set; }
         public virtual DbSet<Employee> Employee { get; set; }
         public virtual DbSet<BPMSysUsers> BPMSysUsers { get; set; }
+        public virtual DbSet<Procurement> Procurement { get; set; }
+        public virtual DbSet<ProcurementPlus> ProcurementPlus { get; set; }
     }
 }
