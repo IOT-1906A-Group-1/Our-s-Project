@@ -20,7 +20,7 @@ namespace Api.Controllers
     public class BaseController
     {
         protected  DataSet dataSet = new DataSet("FormData");
-       private const string IsNotField = "Action,BPMUser,BPMUserPass,FullName,ProcessName,Detail";
+        private const string IsNotField = "Action,BPMUser,BPMUserPass,FullName,ProcessName,Detail";
         private IConfiguration configuration;
         public BaseController(IConfiguration configuration)
         {
