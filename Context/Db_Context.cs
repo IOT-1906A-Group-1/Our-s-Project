@@ -28,6 +28,9 @@ namespace Context
         public virtual DbSet<Employ> Employ { get; set; }
         public virtual DbSet<Employee> Employee { get; set; }
         public virtual DbSet<BPMSysUsers> BPMSysUsers { get; set; }
+
+
+
         public virtual DbSet<Procurement> Procurement { get; set; }
         public virtual DbSet<ProcurementPlus> ProcurementPlus { get; set; }
     }
