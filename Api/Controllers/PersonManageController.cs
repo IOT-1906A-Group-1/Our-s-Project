@@ -56,11 +56,33 @@ namespace Api.Controllers
         [HttpPost, Route("api/startemploy")]
         public int StartEmploy(InputEmployAll inputEmployAll)
         {
-            //string a = inputEmployAll.EmployData.Replace("\\", "");
-            //string b = inputEmployAll.EmployeeDetail.Replace("\\", "");
-            var xml = CollectionToSqlXml<Employ>(inputEmployAll.EmployData);
-            var xml1 = CollectionToSqlXml<Employee>(inputEmployAll.EmployeeDetail);
-            StartProccess(xml + xml1, inputEmployAll);
+            var employ = CollectionToSqlXml<Employ>(inputEmployAll.EmployData);
+            var employee = CollectionToSqlXml<Employee>(inputEmployAll.EmployeeDetail);
+            StartProccess(employ + employee, inputEmployAll);
+            return 1;
+        }
+        /// <summary>
+        /// 员工离职
+        /// </summary>
+        /// <param name="inputEmploy"></param>
+        [HttpPost, Route("api/startDepartur")]
+        public int StartDeparture(DepartureModel departureModel)
+        {
+            var xml = CollectionToSqlXml<Departure>(departureModel.Departure);
+            StartProccess(xml, departureModel);
+            return 1;
+        }
+        /// <summary>
+        /// 人力资源需求
+        /// </summary>
+        /// <param name="leaveNew"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("api/StartHR")]
+        public int StartHR(BPMHRModels leaveNew)
+        {
+            var xml = CollectionToSqlXml<HRModel>(leaveNew.HRdata);
+            StartProccess(xml, leaveNew);
             return 1;
         }
     }

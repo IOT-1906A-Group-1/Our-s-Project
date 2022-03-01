@@ -13,7 +13,7 @@ namespace Domain.InputModels
     ///人力资源管理需求 
     /// </summary>
     [Table("HRModel")]
-    public class InputHRModel:BaseModels
+    public class InputHRModel
     {
         [Key]
         public int HId { get; set; }
