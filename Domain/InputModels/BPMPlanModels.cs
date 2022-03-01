@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Domain.InputModels
 {
-   public class BPMPlanModels:BaseModels
+    public class BPMPlanModels:BaseModels
     {
         /// <summary>
         /// 年度计划主表
