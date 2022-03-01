@@ -24,7 +24,7 @@ namespace Service
             var obj = db.BPMSysUsers.FirstOrDefault(x => x.Account == model.user_Account && x.Password == model.user_Password);
             if (obj != null)
             {
-                return obj.Account;
+                return obj.DisplayName;
             }
             else
             {
