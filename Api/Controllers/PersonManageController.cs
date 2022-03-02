@@ -1,6 +1,7 @@
 ﻿using BPMAPI.OtherApi;
 using bpmdemoapi.models;
 using Domain.InputModels;
+using IService;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -20,9 +21,10 @@ namespace Api.Controllers
     [ApiController] 
     public class PersonManageController : BaseController
     {
-        public PersonManageController(IConfiguration configuration) : base(configuration)
+        public IServiceDB service;
+        public PersonManageController(IConfiguration configuration, IServiceDB service) : base(configuration)
         {
-           
+            this.service = service;
         }
         /// <summary>
         /// 请假
@@ -85,6 +87,17 @@ namespace Api.Controllers
             var xml = CollectionToSqlXml<HRModel>(leaveNew.HRdata);
             StartProccess(xml, leaveNew);
             return 1;
+        }
+        /// <summary>
+        /// 获取用户部门
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet,Route("GetUsersRole")]
+        public ActionResult GetUsersRole(string name)
+        {
+            var objMember = service.QueryOUMembers().FirstOrDefault(x => x.UserAccount == name);
+            var memberOus = service.QueryOUs().FirstOrDefault(x => x.Ouid == objMember.Ouid);
+            return Ok(memberOus.OUName);
         }
     }
 }

@@ -1,7 +1,9 @@
 ﻿using Context;
 using Domain;
 using Domain.OutPutModels;
+using IRepository;
 using IService;
+using Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,9 +14,15 @@ namespace Service
 {
     public class ServiceSqlDB: IServiceDB
     {
+        public IRepositoryDB<BPMSysOUMembers> repositoryOUMembers;
+        public IRepositoryDB<BPMSysOUs> repositoryOUs;
+        public IRepositoryDB<BPMSysOURoles> repositoryOURoles;
         public Db_Context db;
-        public ServiceSqlDB(Db_Context db)
+        public ServiceSqlDB(Db_Context db, IRepositoryDB<BPMSysOUMembers> repositoryOUMembers, IRepositoryDB<BPMSysOUs> repositoryOUs, IRepositoryDB<BPMSysOURoles> repositoryOURoles)
         {
+            this.repositoryOURoles = repositoryOURoles;
+            this.repositoryOUMembers = repositoryOUMembers;
+            this.repositoryOUs = repositoryOUs;
             this.db = db;
         }
 
@@ -30,6 +38,21 @@ namespace Service
             {
                 return null;
             }
+        }
+        //查询部门
+        public List<BPMSysOUs> QueryOUs()
+        {
+            return repositoryOUs.Query();
+        }
+        //查询成员
+        public List<BPMSysOUMembers> QueryOUMembers()
+        {
+            return repositoryOUMembers.Query();
+        }
+        //查询角色
+        public List<BPMSysOURoles> QueryOURoles()
+        {
+            return repositoryOURoles.Query();
         }
     }
 }
