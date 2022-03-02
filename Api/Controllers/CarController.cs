@@ -1,7 +1,11 @@
 ﻿using IService;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Model;
+using Microsoft.Extensions.Configuration;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Api.Controllers
 {
@@ -25,7 +29,7 @@ namespace Api.Controllers
         {
             return serviceDBCar.AddCarmaintain(carmaintain);
         }
-        /// <summary>
+    /// <summary>
         /// 车辆保险添加函数
         /// </summary>
         /// <param name="carInsurance"></param>
@@ -37,12 +41,12 @@ namespace Api.Controllers
         }
         /// <summary>
         /// 车辆维修添加函数
-        /// </summary>
+    /// </summary>
         /// <param name="carService"></param>
         /// <returns></returns>
         [HttpPost,Route("api/carservice")]
         public int CarserviceAdd([FromBody] CarService carService)
-        {
+    {
             return serviceDBCar.AddCarservice(carService);
         }
         /// <summary>

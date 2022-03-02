@@ -1,6 +1,7 @@
 ﻿using BPMAPI.OtherApi;
 using bpmdemoapi.models;
 using Domain.InputModels;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
 using System;
@@ -17,10 +18,10 @@ using System.Xml;
 namespace Api.Controllers
 {
    
-    public class BaseController
+    public class BaseController: ControllerBase
     {
         protected  DataSet dataSet = new DataSet("FormData");
-       private const string IsNotField = "Action,BPMUser,BPMUserPass,FullName,ProcessName,Detail";
+        private const string IsNotField = "Action,BPMUser,BPMUserPass,FullName,ProcessName,Detail";
         private IConfiguration configuration;
         public BaseController(IConfiguration configuration)
         {
@@ -128,8 +129,6 @@ namespace Api.Controllers
        
         protected Task<int> StartProccess(string formDataSet, BaseModels baseModels) 
         {
-
-         
             BPMModels models = new BPMModels(configuration)
             {
                 Action = baseModels.Action,
@@ -137,6 +136,19 @@ namespace Api.Controllers
                 BPMUser = baseModels.BPMUser,
                 BPMUserPass = baseModels.BPMUserPass,
                 FormDataSet = "<FormData>"+formDataSet+ "</FormData>",
+                FullName = baseModels.FullName,
+                ProcessName = baseModels.ProcessName
+            };
+            return MyClientApi.OptClientApi(models.BpmServerUrl, models);
+        }
+        protected Task<int> ApproveProccess(string formDataSet, BaseModels baseModels)
+        {
+            BPMModels models = new BPMModels(configuration)
+            {
+                Action = baseModels.Action,
+                BPMUser = baseModels.BPMUser,
+                BPMUserPass = baseModels.BPMUserPass,
+                FormDataSet = "<FormData>" + formDataSet + "</FormData>",
                 FullName = baseModels.FullName,
                 ProcessName = baseModels.ProcessName
             };
