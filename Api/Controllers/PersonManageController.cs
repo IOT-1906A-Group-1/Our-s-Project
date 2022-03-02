@@ -89,7 +89,7 @@ namespace Api.Controllers
             return 1;
         }
         /// <summary>
-        /// 获取用户角色
+        /// 获取用户部门
         /// </summary>
         /// <returns></returns>
         [HttpGet,Route("GetUsersRole")]
