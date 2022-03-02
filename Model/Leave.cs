@@ -59,5 +59,9 @@ namespace Model
         /// 备注
         /// </summary>
         public string Remarks { get; set; }
+        /// <summary>
+        /// 部门
+        /// </summary>
+        public string OUsName { get; set; }
     }
 }
