@@ -29,5 +29,8 @@ namespace Context
         public virtual DbSet<Employee> Employee { get; set; }
         public virtual DbSet<BPMSysUsers> BPMSysUsers { get; set; }
         public virtual DbSet<ChapterModels> ChapterModels { get; set; }
+        public DbSet<BPMSysOUMembers> BPMSysOUMembers { get; set; }
+        public DbSet<BPMSysOURoles> BPMSysOURoles { get; set; }
+        public DbSet<BPMSysOUs> BPMSysOUs { get; set; }
     }
 }
