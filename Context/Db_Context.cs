@@ -32,5 +32,8 @@ namespace Context
 
         public virtual DbSet<Procurement> Procurement { get; set; }
         public virtual DbSet<ProcurementPlus> ProcurementPlus { get; set; }
+        public virtual DbSet<RoomNewModel> RoomNewModel { get; set; }
+        public virtual DbSet<RoomreservationModel> RoomreservationModel { get; set; }
     }
+
 }
