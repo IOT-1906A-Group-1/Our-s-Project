@@ -1,6 +1,8 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Domain.InputModels;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
+using Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +18,20 @@ namespace Api.Controllers
     {
         public AssetsController(IConfiguration configuration) : base(configuration)
         {
-
+          
+        }
+        /// <summary>
+        /// 固定资产申请流程
+        /// </summary>
+        /// <param name="inputAsset"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("api/StartAsset")]
+        public int StartAsset(InputAsset inputAsset)
+        {
+            var xml = CollectionToSqlXml<AssetModel>(inputAsset.AssetData);
+            StartProccess(xml, inputAsset);
+            return 1;
         }
     }
 }
