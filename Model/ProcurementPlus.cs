@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,12 +11,13 @@ namespace Model
     {
 
         /// <summary>
-        /// 日常用品采购申请单副表
+        /// 日常用品采购申请单详情
         /// </summary>
         
         /// <summary>
         /// 主键序号
         /// </summary>
+        [Key]
         public int procurementplus_Id { get; set; }
         /// <summary>
         /// taskId
