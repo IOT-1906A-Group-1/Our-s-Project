@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Context\Context.csproj" />
+    <ProjectReference Include="..\IRepository\IRepository.csproj" />
     <ProjectReference Include="..\IService\IService.csproj" />
   </ItemGroup>
 
