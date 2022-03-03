@@ -1,6 +1,4 @@
-﻿using BPMAPI.OtherApi;
-using bpmdemoapi.models;
-using Domain.InputModels;
+﻿using Domain.InputModels;
 using IService;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -16,15 +14,16 @@ using System.Threading.Tasks;
 namespace Api.Controllers
 {
 
-    [ApiController] 
+    /// <summary>
+    /// 人事管理
+    /// </summary>
+    [ApiController]
     public class PersonManageController : BaseController
     {
         public IServiceDB service;
         public PersonManageController(IConfiguration configuration, IServiceDB service) : base(configuration)
         {
             this.service = service;
-        }
-           
         }
         /// <summary>
         /// 请假
@@ -92,7 +91,7 @@ namespace Api.Controllers
         /// 获取用户部门
         /// </summary>
         /// <returns></returns>
-        [HttpGet,Route("GetUsersRole")]
+        [HttpGet, Route("GetUsersRole")]
         public ActionResult GetUsersRole(string name)
         {
             var objMember = service.QueryOUMembers().FirstOrDefault(x => x.UserAccount == name);

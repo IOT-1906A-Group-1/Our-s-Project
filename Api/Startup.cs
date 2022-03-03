@@ -35,6 +35,7 @@ namespace Api
             //注入服务
             services.AddScoped<IServiceDB, ServiceSqlDB>();
             services.AddScoped<IServiceDBCar, ServiceDBCar>();
+            services.AddScoped<IServiceDBVehicel,ServiceDBVehicel>();
             //连接上下文
             services.AddDbContext<Db_Context>();
             services.AddControllers();

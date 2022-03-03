@@ -19,18 +19,5 @@ namespace Api.Controllers
         {
             this.service = service;
         }
-        /// <summary>
-        /// 审批请假流程
-        /// </summary>
-        /// <param name="leaveNew"></param>
-        /// <returns></returns>
-        [HttpPost]
-        [Route("api/stratLeave")]
-        public int stratLeave(BPMLeaveModels leave)
-        {
-            var xml = CollectionToSqlXml<Leave>(leave.LeaveData);
-            ApproveProccess(xml, leave);
-            return 1;
-        }
     }
 }

@@ -1,5 +1,5 @@
 ﻿
-using bpmdemoapi.models;
+using Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,11 +7,11 @@ using System.Net.Http;
 using System.Net.Http.Formatting;
 using System.Threading.Tasks;
 
-namespace BPMAPI.OtherApi
+namespace Api
 {
     public class MyClientApi
     {
-        public static async Task<int> OptClientApi(string webapiUrl,BPMModels models)
+        public static async Task<string> OptClientApi(string webapiUrl,BPMModels models)
         {
             var httpResponseMsg = new HttpResponseMessage();
 
@@ -19,8 +19,8 @@ namespace BPMAPI.OtherApi
             {
                 httpResponseMsg = await httpClient.PostAsync<BPMModels>(webapiUrl, models, new JsonMediaTypeFormatter());
             }
-            var taskid = int.Parse(httpResponseMsg.Content.ReadAsAsync<string>().Result);
-            return taskid;
+            var result = httpResponseMsg.Content.ReadAsAsync<string>().Result;
+            return   result;
         }
     }
 }

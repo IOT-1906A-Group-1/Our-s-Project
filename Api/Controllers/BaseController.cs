@@ -1,5 +1,4 @@
-﻿using BPMAPI.OtherApi;
-using bpmdemoapi.models;
+﻿using Domain;
 using Domain.InputModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -127,7 +126,7 @@ namespace Api.Controllers
         //}
 
        
-        protected Task<int> StartProccess(string formDataSet, BaseModels baseModels) 
+        protected Task<string> StartProccess(string formDataSet, BaseModels baseModels) 
         {
             BPMModels models = new BPMModels(configuration)
             {
@@ -141,7 +140,7 @@ namespace Api.Controllers
             };
             return MyClientApi.OptClientApi(models.BpmServerUrl, models);
         }
-        protected Task<int> ApproveProccess(string formDataSet, BaseModels baseModels)
+        protected Task<string> ApproveProccess(string formDataSet, BaseModels baseModels)
         {
             BPMModels models = new BPMModels(configuration)
             {
