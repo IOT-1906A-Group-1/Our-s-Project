@@ -37,6 +37,9 @@ namespace Context
         public DbSet<BPMSysOUMembers> BPMSysOUMembers { get; set; }
         public DbSet<BPMSysOURoles> BPMSysOURoles { get; set; }
         public DbSet<BPMSysOUs> BPMSysOUs { get; set; }
+        public DbSet<Reception> Reception { get; set; }
+        public DbSet<Receptionplus> Receptionplus { get; set; }
+        public DbSet<Receptions> Receptions { get; set; }
     }
 
 }
