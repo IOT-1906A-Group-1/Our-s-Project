@@ -33,5 +33,32 @@ namespace Api.Controllers
             StartProccess(xml, inputAsset);
             return 1;
         }
+        /// <summary>
+        /// 固定资产借用流程
+        /// </summary>
+        /// <param name="assetborrow"></param>
+        /// 
+        /// <returns></returns>
+        [HttpPost]
+        [Route("api/StartAssetborrow")]
+        public int StartAssetborrow(InputAssetborrow assetborrow)
+        {
+            var xml = CollectionToSqlXml<AssetborrowModel>(assetborrow.AssetborrowData);
+            StartProccess(xml, assetborrow);
+            return 1;
+        }
+        /// <summary>
+        /// 固定资产交接
+        /// </summary>
+        /// <param name="assetconnect"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("api/StartAssetconnect")]
+        public int StartAssetconnect(InputAssetconnect assetconnect)
+        {
+            var xml = CollectionToSqlXml<AssetconnectModel>(assetconnect.AssetconnectData);
+            StartProccess(xml, assetconnect);
+            return 1;
+        }
     }
 }

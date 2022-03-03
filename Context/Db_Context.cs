@@ -33,5 +33,7 @@ namespace Context
         public DbSet<BPMSysOURoles> BPMSysOURoles { get; set; }
         public DbSet<BPMSysOUs> BPMSysOUs { get; set; }
         public virtual DbSet<AssetModel> AssetModel { get; set; }
+        public virtual DbSet<AssetborrowModel> AssetborrowModel { get; set; }
+        public virtual DbSet<AssetconnectModel> AssetconnectModel { get; set; }
     }
 }
