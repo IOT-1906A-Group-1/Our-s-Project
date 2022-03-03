@@ -17,12 +17,20 @@ namespace Service
         public IRepositoryDB<BPMSysOUMembers> repositoryOUMembers;
         public IRepositoryDB<BPMSysOUs> repositoryOUs;
         public IRepositoryDB<BPMSysOURoles> repositoryOURoles;
+        public IRepositoryDB<BPMInstTasks> repositoryInstTasks;
+        public IRepositoryDB<BPMInstProcSteps> repositoryInstProcSteps;
+        public IRepositoryDB<Leave> repositoryLeave;
+        public IRepositoryDB<Employ> repositoryEmploy;
         public Db_Context db;
-        public ServiceSqlDB(Db_Context db, IRepositoryDB<BPMSysOUMembers> repositoryOUMembers, IRepositoryDB<BPMSysOUs> repositoryOUs, IRepositoryDB<BPMSysOURoles> repositoryOURoles)
+        public ServiceSqlDB(Db_Context db, IRepositoryDB<BPMSysOUMembers> repositoryOUMembers, IRepositoryDB<BPMSysOUs> repositoryOUs, IRepositoryDB<BPMSysOURoles> repositoryOURoles, IRepositoryDB<BPMInstTasks> repositoryInstTasks, IRepositoryDB<BPMInstProcSteps> repositoryInstProcSteps, IRepositoryDB<Leave> repositoryLeave, IRepositoryDB<Employ> repositoryEmploy)
         {
+            this.repositoryLeave = repositoryLeave;
+            this.repositoryInstTasks = repositoryInstTasks;
+            this.repositoryInstProcSteps = repositoryInstProcSteps;
             this.repositoryOURoles = repositoryOURoles;
             this.repositoryOUMembers = repositoryOUMembers;
             this.repositoryOUs = repositoryOUs;
+            this.repositoryEmploy = repositoryEmploy;
             this.db = db;
         }
 
@@ -53,6 +61,26 @@ namespace Service
         public List<BPMSysOURoles> QueryOURoles()
         {
             return repositoryOURoles.Query();
+        }
+
+        public List<BPMInstTasks> QueryInstTasks()
+        {
+            return repositoryInstTasks.Query();
+        }
+
+        public List<BPMInstProcSteps> QueryInstProcSteps()
+        {
+            return repositoryInstProcSteps.Query();
+        }
+
+        public List<Leave> QueryLeave()
+        {
+            return repositoryLeave.Query();
+        }
+
+        public List<Employ> QueryEmploy()
+        {
+            return repositoryEmploy.Query();
         }
     }
 }

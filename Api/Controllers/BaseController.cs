@@ -139,18 +139,20 @@ namespace Api.Controllers
             };
             return MyClientApi.OptClientApi(models.BpmServerUrl, models);
         }
-        protected Task<string> ApproveProccess(string formDataSet, BaseModels baseModels)
+        protected Task<string> ApproveProccess(ApproveBPMModels baseModels)
         {
             BPMModels models = new BPMModels(configuration)
             {
+                TaskID = baseModels.TaskID,
+                StepId = baseModels.StepId,
+                Comments = baseModels.Comments,
                 Action = baseModels.Action,
                 BPMUser = baseModels.BPMUser,
                 BPMUserPass = baseModels.BPMUserPass,
-                FormDataSet = "<FormData>" + formDataSet + "</FormData>",
                 FullName = baseModels.FullName,
                 ProcessName = baseModels.ProcessName
             };
-            return MyClientApi.OptClientApi(models.BpmServerUrl, models);
+            return MyClientApi.OptClientApi(models.ApproveServerUrl, models);
         }
     }
 }

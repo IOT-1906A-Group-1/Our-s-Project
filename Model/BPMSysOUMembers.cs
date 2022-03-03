@@ -9,7 +9,11 @@ namespace Model
 {
     public class BPMSysOUMembers
     {
+        /// <summary>
+        /// OUMId
+        /// </summary>
         [Key]
+        public int OUMId { get; set; }
         /// <summary>
         /// ouid
         /// </summary>
