@@ -15,5 +15,9 @@ namespace IService
         List<BPMSysOUMembers> QueryOUMembers();
         List<BPMSysOURoles> QueryOURoles();
         List<BPMSysOUs> QueryOUs();
+        List<BPMInstTasks> QueryInstTasks();
+        List<BPMInstProcSteps> QueryInstProcSteps();
+        List<Leave> QueryLeave();
+        List<Employ> QueryEmploy();
     }
 }

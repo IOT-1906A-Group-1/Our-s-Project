@@ -17,6 +17,9 @@ namespace bpmdemoapi.models
         }
 
 
+        public int TaskID { get; set; }
+        public int StepId { get; set; }
+        public string Comments { get; set; }
         /// <summary>
         /// 流程名称
         /// </summary>

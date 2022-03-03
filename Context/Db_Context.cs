@@ -32,5 +32,7 @@ namespace Context
         public DbSet<BPMSysOUMembers> BPMSysOUMembers { get; set; }
         public DbSet<BPMSysOURoles> BPMSysOURoles { get; set; }
         public DbSet<BPMSysOUs> BPMSysOUs { get; set; }
+        public DbSet<BPMInstProcSteps> BPMInstProcSteps { get; set; }
+        public DbSet<BPMInstTasks> BPMInstTasks { get; set; }
     }
 }

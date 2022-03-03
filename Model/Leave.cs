@@ -44,9 +44,13 @@ namespace Model
         /// </summary>
         public string leaveType { get; set; }
         /// <summary>
-        /// 请假天数
+        /// 请假天数和小时数
         /// </summary>
         public string leaveDays { get; set; }
+        /// <summary>
+        /// 请假天数
+        /// </summary>
+        public int leaveDay { get; set; }
         /// <summary>
         /// 请假原因
         /// </summary>
