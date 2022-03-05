@@ -38,5 +38,6 @@ namespace Context
         public virtual DbSet<CarInsurance> CarInsurance { get; set; }
         public virtual DbSet<CarService> CarService { get; set; }
         public virtual DbSet<CarBreak> CarBreak { get; set; }
+        public virtual DbSet<Vehicel> Vehicel { get; set; }
     }
 }

@@ -98,5 +98,17 @@ namespace Api.Controllers
             var memberOus = service.QueryOUs().FirstOrDefault(x => x.Ouid == objMember.Ouid);
             return Ok(memberOus.OUName);
         }
+        /// <summary>
+        /// 用车申请
+        /// </summary>
+        /// <param name="vehicelAll"></param>
+        /// <returns></returns>
+        [HttpPost,Route("api/forvehicel")]
+        public int ForVehicel(VehicelAll vehicelAll)
+        {
+            var ve = CollectionToSqlXml<Vehicel>(vehicelAll.VehicelData);
+            StartProccess(ve, vehicelAll);
+            return 1;
+        }
     }
 }
