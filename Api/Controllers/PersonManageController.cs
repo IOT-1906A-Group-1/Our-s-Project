@@ -1,4 +1,5 @@
-﻿
+﻿using BPMAPI.OtherApi;
+using bpmdemoapi.models;
 using Domain.InputModels;
 using IService;
 using Microsoft.AspNetCore.Http;
@@ -91,7 +92,7 @@ namespace Api.Controllers
         /// <summary>
         /// 获取用户部门
         /// </summary>
-        /// <returns></returns>
+        [HttpGet, Route("GetUsersRole")]
         [HttpGet, Route("GetUsersRole")]
         public ActionResult GetUsersRole(string name)
         {

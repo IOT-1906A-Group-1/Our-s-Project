@@ -30,8 +30,13 @@ namespace Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //注入仓储
             services.AddScoped(typeof(IRepositoryDB<>), typeof(RepositorySqlDB<>));
+            //注入服务
             services.AddScoped<IServiceDB, ServiceSqlDB>();
+            services.AddScoped<IServiceDBCar, ServiceDBCar>();
+            services.AddScoped<IServiceDBVehicel,ServiceDBVehicel>();
+            //连接上下文
             services.AddDbContext<Db_Context>();
             services.AddControllers();
             services.AddSwaggerGen(c =>
