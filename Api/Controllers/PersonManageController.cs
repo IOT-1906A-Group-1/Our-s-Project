@@ -1,5 +1,4 @@
-﻿using Api;
-using bpmdemoapi.models;
+﻿
 using Domain.InputModels;
 using IService;
 using Microsoft.AspNetCore.Http;
@@ -15,10 +14,11 @@ using System.Threading.Tasks;
 
 namespace Api.Controllers
 {
+
     /// <summary>
     /// 人事管理
     /// </summary>
-    [ApiController] 
+    [ApiController]
     public class PersonManageController : BaseController
     {
         public IServiceDB service;
@@ -92,12 +92,24 @@ namespace Api.Controllers
         /// 获取用户部门
         /// </summary>
         /// <returns></returns>
-        [HttpGet,Route("GetUsersRole")]
+        [HttpGet, Route("GetUsersRole")]
         public ActionResult GetUsersRole(string name)
         {
             var objMember = service.QueryOUMembers().FirstOrDefault(x => x.UserAccount == name);
             var memberOus = service.QueryOUs().FirstOrDefault(x => x.Ouid == objMember.Ouid);
             return Ok(memberOus.OUName);
+        }
+        /// <summary>
+        /// 用车申请
+        /// </summary>
+        /// <param name="vehicelAll"></param>
+        /// <returns></returns>
+        [HttpPost,Route("api/forvehicel")]
+        public int ForVehicel(VehicelAll vehicelAll)
+        {
+            var ve = CollectionToSqlXml<Vehicel>(vehicelAll.VehicelData);
+            StartProccess(ve, vehicelAll);
+            return 1;
         }
     }
 }
