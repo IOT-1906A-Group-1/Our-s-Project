@@ -12,7 +12,7 @@ namespace Domain.InputModels
     public class ExcelHelper
     {
         /// <summary>
-        /// 
+        /// 到处xlsx文件帮助类
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="dataList">数据</param>
