@@ -23,5 +23,12 @@ namespace IService
         int RoomNewModeladd(RoomNewModel m);
         int RoomreservationModeladd(RoomreservationModel m);
         List<OutPutProcurement> QueryProcurement();
+        List<HRModel> QUeryHR();
+        List<AssetModel> QUeryAsset();
+        List<AssetborrowModel> QueryAssetborrow();
+        List<AssetconnectModel> QueryAssetconnect();
+        List<AssetDaModel> QUeryAssetDa();
+        List<AssetDtModel> QueryAssetDt();
+        List<AssetFdModel> QueryAssetFd();
     }
 }

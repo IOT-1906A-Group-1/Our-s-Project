@@ -1,5 +1,4 @@
-﻿using BPMAPI.OtherApi;
-using bpmdemoapi.models;
+﻿using Domain;
 using Domain.InputModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -34,12 +33,10 @@ namespace Api.Controllers
             {
                 TCollection = JsonConvert.DeserializeObject<List<T>>(json);
             }
-            
             else
             {
                 TCollection = JsonConvert.DeserializeObject<List<T>>("[" + json + "]");
             }
-
             //先把集合转换成数据表，然后把数据表转换成SQLXML
             return  DataTableToSqlXml(CollectionToDataTable(TCollection)).Value.Replace("<DocumentElement>", "").Replace("</DocumentElement>", "");
             

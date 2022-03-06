@@ -43,6 +43,18 @@ namespace Context
         public DbSet<Receptionplus> Receptionplus { get; set; }
         public DbSet<Receptions> Receptions { get; set; }
         public DbSet<Departure> Departure { get; set; }
+        public virtual DbSet<AssetModel> AssetModel { get; set; }
+        public virtual DbSet<AssetborrowModel> AssetborrowModel { get; set; }
+        public virtual DbSet<AssetconnectModel> AssetconnectModel { get; set; }
+        public virtual DbSet<HRModel> HRModel { get; set; }
+        public virtual DbSet<AssetDaModel> AssetDaModel { get; set; }
+        public virtual DbSet<AssetDtModel> AssetDtModel { get; set; }
+        public virtual DbSet<AssetFdModel> AssetFdModel { get; set; }
+        public virtual DbSet<CarMaintain> CarMaintain { get; set; }
+        public virtual DbSet<CarInsurance> CarInsurance { get; set; }
+        public virtual DbSet<CarService> CarService { get; set; }
+        public virtual DbSet<CarBreak> CarBreak { get; set; }
+        public virtual DbSet<Vehicel> Vehicel { get; set; }
     }
 
 }
