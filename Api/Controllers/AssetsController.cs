@@ -60,5 +60,16 @@ namespace Api.Controllers
             StartProccess(xml, assetconnect);
             return 1;
         }
+        [HttpPost]
+        [Route("api/StartAssetAp")]
+        public int StartAssetAp(InputAssetApModel inputAssetAp)
+        {
+            var xml = CollectionToSqlXml<AssetFdModel>(inputAssetAp.AssetFoundation);
+            var xmls = CollectionToSqlXml<AssetDtModel>(inputAssetAp.AssetDetailed);
+            var xmla = CollectionToSqlXml<AssetDaModel>(inputAssetAp.AssetAnnex);
+            StartProccess(xml+xmls+xmla,inputAssetAp);
+            return 1;
+        }
+
     }
 }

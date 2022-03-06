@@ -21,8 +21,15 @@ namespace Service
         public IRepositoryDB<BPMInstProcSteps> repositoryInstProcSteps;
         public IRepositoryDB<Leave> repositoryLeave;
         public IRepositoryDB<Employ> repositoryEmploy;
+        public IRepositoryDB<HRModel> repositoryHR;
+        public IRepositoryDB<AssetModel> repositoryAsset;
+        public IRepositoryDB<AssetborrowModel> repositoryAssetborrow;
+        public IRepositoryDB<AssetconnectModel> repositoryAssetconnect;
+        public IRepositoryDB<AssetDaModel> repositoryAssetDa;
+        public IRepositoryDB<AssetDtModel> repositoryAssetDt;
+        public IRepositoryDB<AssetFdModel> repositoryAssetFd;
         public Db_Context db;
-        public ServiceSqlDB(Db_Context db, IRepositoryDB<BPMSysOUMembers> repositoryOUMembers, IRepositoryDB<BPMSysOUs> repositoryOUs, IRepositoryDB<BPMSysOURoles> repositoryOURoles, IRepositoryDB<BPMInstTasks> repositoryInstTasks, IRepositoryDB<BPMInstProcSteps> repositoryInstProcSteps, IRepositoryDB<Leave> repositoryLeave, IRepositoryDB<Employ> repositoryEmploy)
+        public ServiceSqlDB(Db_Context db, IRepositoryDB<BPMSysOUMembers> repositoryOUMembers, IRepositoryDB<BPMSysOUs> repositoryOUs, IRepositoryDB<BPMSysOURoles> repositoryOURoles, IRepositoryDB<BPMInstTasks> repositoryInstTasks, IRepositoryDB<BPMInstProcSteps> repositoryInstProcSteps, IRepositoryDB<Leave> repositoryLeave, IRepositoryDB<Employ> repositoryEmploy,IRepositoryDB<HRModel> repositoryHR, IRepositoryDB<AssetModel> repositoryAsset, IRepositoryDB<AssetborrowModel> repositoryAssetborrow, IRepositoryDB<AssetconnectModel> repositoryAssetconnect, IRepositoryDB<AssetDaModel> repositoryAssetDa, IRepositoryDB<AssetDtModel> repositoryAssetDt, IRepositoryDB<AssetFdModel> repositoryAssetFd)
         {
             this.repositoryLeave = repositoryLeave;
             this.repositoryInstTasks = repositoryInstTasks;
@@ -31,6 +38,13 @@ namespace Service
             this.repositoryOUMembers = repositoryOUMembers;
             this.repositoryOUs = repositoryOUs;
             this.repositoryEmploy = repositoryEmploy;
+            this.repositoryHR = repositoryHR;
+            this.repositoryAsset = repositoryAsset;
+            this.repositoryAssetborrow = repositoryAssetborrow;
+            this.repositoryAssetconnect = repositoryAssetconnect;
+            this.repositoryAssetDa = repositoryAssetDa;
+            this.repositoryAssetDt = repositoryAssetDt;
+            this.repositoryAssetFd = repositoryAssetFd;
             this.db = db;
         }
 
@@ -81,6 +95,41 @@ namespace Service
         public List<Employ> QueryEmploy()
         {
             return repositoryEmploy.Query();
+        }
+
+        public List<HRModel> QUeryHR()
+        {
+            return repositoryHR.Query();
+        }
+
+        public List<AssetModel> QUeryAsset()
+        {
+            return repositoryAsset.Query();
+        }
+
+        public List<AssetborrowModel> QueryAssetborrow()
+        {
+            return repositoryAssetborrow.Query();
+        }
+
+        public List<AssetconnectModel> QueryAssetconnect()
+        {
+            return repositoryAssetconnect.Query();
+        }
+
+        public List<AssetDaModel> QUeryAssetDa()
+        {
+            return repositoryAssetDa.Query();
+        }
+
+        public List<AssetDtModel> QueryAssetDt()
+        {
+            return repositoryAssetDt.Query();
+        }
+
+        public List<AssetFdModel> QueryAssetFd()
+        {
+            return repositoryAssetFd.Query();
         }
     }
 }

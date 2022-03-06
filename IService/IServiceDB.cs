@@ -19,5 +19,12 @@ namespace IService
         List<BPMInstProcSteps> QueryInstProcSteps();
         List<Leave> QueryLeave();
         List<Employ> QueryEmploy();
+        List<HRModel> QUeryHR();
+        List<AssetModel> QUeryAsset();
+        List<AssetborrowModel> QueryAssetborrow();
+        List<AssetconnectModel> QueryAssetconnect();
+        List<AssetDaModel> QUeryAssetDa();
+        List<AssetDtModel> QueryAssetDt();
+        List<AssetFdModel> QueryAssetFd();
     }
 }

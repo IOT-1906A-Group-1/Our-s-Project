@@ -37,5 +37,9 @@ namespace Context
         public virtual DbSet<AssetModel> AssetModel { get; set; }
         public virtual DbSet<AssetborrowModel> AssetborrowModel { get; set; }
         public virtual DbSet<AssetconnectModel> AssetconnectModel { get; set; }
+        public virtual DbSet<HRModel> HRModel { get; set; }
+        public virtual DbSet<AssetDaModel> AssetDaModel { get; set; }
+        public virtual DbSet<AssetDtModel> AssetDtModel { get; set; }
+        public virtual DbSet<AssetFdModel> AssetFdModel { get; set; }
     }
 }
