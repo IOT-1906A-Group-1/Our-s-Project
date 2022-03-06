@@ -42,6 +42,7 @@ namespace Context
         public DbSet<Reception> Reception { get; set; }
         public DbSet<Receptionplus> Receptionplus { get; set; }
         public DbSet<Receptions> Receptions { get; set; }
+        public DbSet<Departure> Departure { get; set; }
     }
 
 }

@@ -19,5 +19,9 @@ namespace IService
         List<BPMInstProcSteps> QueryInstProcSteps();
         List<Leave> QueryLeave();
         List<Employ> QueryEmploy();
+        List<Departure> QuerDeparture();
+        int RoomNewModeladd(RoomNewModel m);
+        int RoomreservationModeladd(RoomreservationModel m);
+        List<OutPutProcurement> QueryProcurement();
     }
 }

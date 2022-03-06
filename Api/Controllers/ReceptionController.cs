@@ -26,8 +26,7 @@ namespace Api.Controllers
         /// <param name="Reception"></param>
         [HttpPost]
         [Route("api/StartReception")]
-        public int StartReception(BPMReception models)
-        {
+        public int StartReception(BPMReception models) { 
             var plan = CollectionToSqlXml<Reception>(models.Reception);
             var info = CollectionToSqlXml<Receptions>(models.Receptions);
             var ccc = CollectionToSqlXml<Receptionplus>(models.Receptionplus);

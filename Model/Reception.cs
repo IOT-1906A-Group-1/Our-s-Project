@@ -33,7 +33,7 @@ namespace Model
         /// <summary>
         /// 申请时间
         /// </summary>
-        public DateTime reception_Stime { get; set; }
+        public string reception_Stime { get; set; }
         /// <summary>
         /// 来访客人单位
         /// </summary>
@@ -45,7 +45,7 @@ namespace Model
         /// <summary>
         /// 停留时间
         /// </summary>
-        public DateTime reception_Ttime { get; set; }
+        public string  reception_Ttime { get; set; }
         public DateTime reception_Ttimeplus { get; set; }
         /// <summary>
         /// 接待人

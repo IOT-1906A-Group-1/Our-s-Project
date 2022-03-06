@@ -1,11 +1,7 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Domain.InputModels;
+using IService;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Domain.InputModels;
 using Model;
 
 namespace Api.Controllers
@@ -14,33 +10,32 @@ namespace Api.Controllers
     /// 会议室管理
     /// </summary>
     [ApiController]
-    public class MeetroomController : BaseController
+    public class MeetroomController 
     {
-        public MeetroomController(IConfiguration configuration) : base(configuration)
+        
+        private readonly IServiceDB Db;
+        public MeetroomController(IServiceDB Db)
         {
-
+            this.Db = Db;
         }
         /// <summary> 
         /// 会议室新增
         /// </summary>                                                                           
-        /// <param name="InputRoomNewModel"></param>
-        [HttpPost, Route("api/startRoomNewModel")]
-        public int StartDeparture(BPMRoomNewModel bPMRoomNewModel)
+        /// <param name="RoomNewModel"></param>
+        [HttpPost, Route("api/RoomNewModel")]
+        public int StartDeparture(RoomNewModel roomNewModel)
         {
-            var xml = CollectionToSqlXml<RoomNewModel>(bPMRoomNewModel.RoomNewModel);
-            StartProccess(xml, bPMRoomNewModel);
-            return 1;
+           return  Db.RoomNewModeladd(roomNewModel);
         }
         /// <summary>
         /// 会议室预定
         /// </summary>
-        /// <param name="InputRoomreservationModel"></param>
-        [HttpPost, Route("api/startRoomreservationModel")]
-        public int StartRoomreservationModel(BPMRoomreservationModel bPMRoomreservationModel)
+        /// <param name="RoomreservationModel"></param>
+        [HttpPost, Route("api/RoomreservationModel")]
+        public int StartRoomreservationModel(RoomreservationModel roomreservationModel)
         {
-            var xml = CollectionToSqlXml<RoomreservationModel>(bPMRoomreservationModel.RoomreservationModel);
-            StartProccess(xml, bPMRoomreservationModel);
-            return 1;
+            return Db.RoomreservationModeladd(roomreservationModel);
         }
+
     }
 }

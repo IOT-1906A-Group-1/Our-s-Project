@@ -55,6 +55,10 @@ namespace Api.Controllers
             {
                 return Ok(service.QueryEmploy().FirstOrDefault(x => x.TaskId == taskId));
             }
+            else if(process== "departure")
+            {
+                return Ok(service.QuerDeparture().FirstOrDefault(x => x.TaskId == taskId));
+            }
             return Ok(null);
         }
         /// <summary>
